@@ -1,0 +1,27 @@
+$ mix dialyzer --quiet
+lib/smalltoc.ex:225:contract_range
+Contract cannot be correct because return type on line number 253 is mismatched.
+
+Function:
+Smalltoc.wrap_hdr(
+  _acc_out :: nonempty_maybe_improper_list(),
+  _hdr_node ::
+    {<<_::16>>, [{binary(), binary()}],
+     [binary() | {:comment, binary()} | {binary(), [any()], [any()]}]}
+)
+
+Type specification:
+([any()], htag) :: htag when htag: Floki.html_tag()
+
+Success typing (line 253):
+
+  {<<_::8>>, [{<<_::32>>, <<_::8, _::size(8)>>}, ...],
+   {<<_::16>>, [{_, _}], [binary() | {_, _} | {_, _, _}]}}
+
+
+________________________________________________________________________________
+lib/smalltoc.ex:249:no_return
+The created anonymous function has no local return.
+________________________________________________________________________________
+done (warnings were emitted)
+Halting VM with exit status 2
