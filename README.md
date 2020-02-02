@@ -4,8 +4,10 @@ The code in these Mix projects was extracted from a much larger system,
 in order to have smaller and more cohesive versions for experimentation.
 In the original system, the code adds a table of contents (TOC)
 to the HTML output page from a Phoenix-based server.
-It does this task successfully, but causes an error for `mix dialyzer`
-(see `dial_out` for details).
+
+Both versions do this task successfully, but the old version
+causes an error for `mix dialyzer` (see `dial_out` for details).
+The current version (see `take_3`, below) passes Dialyzer.
 
 ## Infrastructure
 
@@ -40,7 +42,8 @@ The projects differ as discussed below.
 
 ### `take_1`
 
-The `smalltoc.ex` file was copied from `router.toc.ex` in the larger system.
+The `smalltoc.ex` file was copied
+from the old `router.toc.ex` in the larger system.
 The Phoenix-related code was then removed
 and a test file (`smalltoc_test.exs`) was created.
 This version of `Smalltoc.add/1`:
@@ -53,3 +56,13 @@ This version of `Smalltoc.add/1`:
 The `smalltoc.ex` file was edited
 to remove the TOC generation and replacement code;
 the test file was modified accordingly.
+
+### `take_3`
+
+The `smalltoc.ex` file was copied
+from the new `router.toc.ex` in the larger system.
+The Phoenix-related code was then removed
+and a test file (`smalltoc_test.exs`) was created.
+This version of `Smalltoc.add/1` uses a combination of Floki calls
+and regular expressions.
+The resulting code is shorter, simpler, and passes Dialyzer.

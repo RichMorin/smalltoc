@@ -1,0 +1,6 @@
+%{
+  "dialyxir": {:git, "https://github.com/jeremyjh/dialyxir.git", "62310a9cbcbb88a9ec08061d93946bf0f096bbbc", []},
+  "erlex": {:hex, :erlex, "0.2.5", "e51132f2f472e13d606d808f0574508eeea2030d487fc002b46ad97e738b0510", [:mix], [], "hexpm"},
+  "floki": {:git, "https://github.com/RichMorin/floki.git", "a3d1e3f0c680db868720ad7404e988bba15e917f", []},
+  "html_entities": {:hex, :html_entities, "0.5.1", "1c9715058b42c35a2ab65edc5b36d0ea66dd083767bef6e3edb57870ef556549", [:mix], [], "hexpm"},
+}
